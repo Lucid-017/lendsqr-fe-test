@@ -1,0 +1,74 @@
+@use './variables' as *;
+
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    // width: 100%;
+  }
+  
+  .pagination-info {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    // .showing{
+    //     border: none;
+    //     background-color: #ddd;
+    //     padding: 4px 8px;
+    // }
+  
+  
+    select {
+      margin: 0 8px;
+      padding: 4px 8px;
+      font-size: $font-small;
+      font-weight: 600;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: #ddd;
+      color: $text-color;
+    }
+  }
+  
+  .pagination-controls {
+    display: flex;
+    align-items: center;
+  
+    button {
+      padding: 8px 12px;
+      border: none;
+      background-color: #ddd;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+      margin: 0 4px;
+  
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+  
+      &:hover:not(:disabled) {
+        background-color: #2ba6a5;
+      }
+    }
+
+    .page-num {
+      padding: 8px 12px;
+      margin: 0 2px;
+      border: 1px solid #ddd;
+      background-color: #fff;
+      color: #000;
+      border-radius: 4px;
+      cursor: pointer;
+  
+      &.active {
+        background-color: #39cdcc;
+        color: #fff;
+      }
+    }
+  }

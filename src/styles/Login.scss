@@ -1,0 +1,98 @@
+@use '../styles/variables' as *;
+
+.login-container {
+  display: flex;
+  max-width: 1200px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.login-left {
+  flex: 1;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  img {
+    width: 90%;
+  }
+}
+
+.login-right {
+  flex: 1;
+  padding: 40px;
+
+  .login-header {
+    text-align: center;
+    margin-bottom: 20px;
+
+    img {
+      width: 150px;
+    }
+  }
+
+  .login-box {
+    text-align: center;
+
+    h1 {
+      color: $light-text-color;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      position: relative;
+
+      input {
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+        border: 1px solid #ddd;  // replaced with a solid color for simplicity
+        border-radius: 4px;
+        background-color: black;
+        color: $text-color;
+      }
+
+      .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $primary-color;
+        cursor: pointer;
+      }
+    }
+
+    .forgot-password {
+      margin-bottom: 20px;
+
+      a {
+        color: $primary-color;  // changed to existing variable
+        text-decoration: none;
+      }
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 15px;
+      background-color: $primary-color;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #ccc;  // replaced hover color with a neutral option
+      }
+    }
+  }
+}

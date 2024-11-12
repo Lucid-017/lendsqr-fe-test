@@ -1,0 +1,33 @@
+@use '../styles/variables' as *;
+
+.btn{
+    padding: $spacing-unit;
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    &:hover {
+        background-color: darken($color: $pending-color, $amount: 10%);
+    }
+}
+
+.btn .status{
+    border-radius:100px ;
+    width: 80px;
+    opacity: 6%;
+}
+.btn.status.inactive{
+    color: darken($color: $inactive-color, $amount: 30%);
+    background-color: $inactive-color;
+}
+.btn.status.active{
+    color: darken($color: $success-color, $amount: 30%);
+    background-color: $success-color;
+}
+.btn.status.pending{
+    color: darken($color: $pending-color, $amount: 30%);
+    background-color:$pending-color ;
+}
+.btn.status.blacklisted{
+    color: darken($color: $error-color, $amount: 30%);
+    background-color: $error-color;
+}
