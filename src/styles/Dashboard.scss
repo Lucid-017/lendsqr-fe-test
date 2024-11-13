@@ -1,15 +1,124 @@
 @use '../styles/variables' as *;
 
-
 body {
   font-family: $font-primary;
   margin: 0;
   padding: 0;
-  // background-color: $primary-color;
+}
+// header
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  margin-bottom: 60px;
 }
 
+/* Search bar */
+.search-bar {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.search-bar input {
+  border: none;
+  width: 400px;
+  padding: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.search-bar button {
+  background-color: #00c2c2;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar button svg {
+  fill: #fff;
+}
+
+/* Right section styling */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.docs-link {
+  margin-right: 20px;
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.bell-icon {
+  margin-right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.bell-icon svg {
+  fill: #333;
+}
+
+/* User Dropdown */
+.user-dropdown {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.user-dropdown .avatar {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+}
+
+.user-dropdown .username {
+  font-weight: 500;
+}
+
+.user-dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  min-width: 150px;
+  z-index: 1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.user-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.user-dropdown .dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: $light-text-color;
+}
+
+.user-dropdown .dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+// 
 .dashboard {
   display: flex;
+ 
 }
 
 .sidebar {
@@ -62,21 +171,41 @@ body {
   }
 }
 
+.search{
+  position: relative;
+  width: 400px;
+}
+
 .main-content {
   flex-grow: 1;
-  padding: 20px;
+  padding: 20px 20px 0 30px;
   background-color: $background-color;
 
   .header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
 
     input {
-      width: 60%;
-      padding: 10px;
-      border: 1px solid $light-text-color;
-      border-radius: 4px;
+      width: 400px;
+      height: 40px;
+      border: 1px solid rgba(128, 128, 128, 0.248);
+      border-radius: $border-radius-large;
+    }
+    input::placeholder{
+      padding-left: 10px;
+    }
+    .search-icon{
+      position: absolute;
+      top: 0;
+      right: -10px;
+      height: 43px;
+      background-color: $accent-color;
+      border-radius: 0px 4px 4px 0px;
+      width: 35px;
+      text-align: center;
+      svg{
+        
+      }
     }
 
     .user-info {
@@ -86,20 +215,15 @@ body {
       span {
         margin-right: 10px;
         font-weight: bold;
-      }
-
-      img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-      }
+      }     
     }
   }
 
   .stats {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
+    gap: 20px;
+    margin-bottom: 50px;
 
     .stat-box {
       background-color: #fff;
@@ -108,6 +232,11 @@ body {
       text-align: center;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       width: 23%;
+      text-transform: uppercase;
+      p{
+        font-size: $font-small;
+
+      }
 
       h2 {
         color: $text-color;
@@ -142,50 +271,126 @@ body {
         color: $light-text-color;
       }
 
-      .status {
-        padding: 5px 10px;
-        border-radius: 4px;
-        font-size: 0.85rem;
-
-        &.inactive {
-          background-color: #f8d7da;
-          color: #721c24;
-        }
-
-        &.pending {
-          background-color: #fff3cd;
-          color: #856404;
-        }
-
-        &.active {
-          background-color: #d4edda;
-          color: #155724;
-        }
-
-        &.blacklisted {
-          background-color: #f5c6cb;
-          color: #721c24;
-        }
       }
     }
   }
-}
+
 // table
 .table-container{
   background-color: $primary-color;
   width: 100%;
   border-radius: $border-radius-small;
-  box-shadow: 2px 2px 2px black;
   padding: 10px;
   position: relative;
+ td{
+  padding-top:12px;
+  padding-bottom:12px;
+  border-bottom: 1px solid #ddd;
+ }
   th div{
     display: flex;
     align-items: center;
+    font-size: $font-small;
+    margin-bottom: 10px;
   }
   th div svg{
     padding-left: 10px;
   }
 }
+
+.status{
+  display: inline-block;
+  padding: 4px 10px;
+  margin: 0;
+  border: none;
+  border-radius: 15px;
+  text-align: center;
+}
+.success-color{
+  background-color:#39cd633b;
+  color: $success-color;
+}
+.inactive-color{
+  background-color: #545f7d2e;
+  color: $inactive-color;
+}
+.pending-color{
+  background-color: #e9b3003d;
+  color: $pending-color;
+}
+.error-color{
+  background-color: #e4033733;
+  color: $error-color;
+}
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.pagination-info {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+
+  select {
+    margin: 0 8px;
+    padding: 4px 10px;
+    font-size: $font-small;
+    color: $text-color;
+    // font-weight:500 ;
+    border:none;
+    border-radius: 4px;
+    background-color: #ddd;
+    outline: none;
+  }
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  .pag-btn{
+    background-color: #ddd;
+    padding: 6px;
+    border-radius:$border-radius-small ;
+    color: $text-color;
+    font-weight: 600;
+  }
+  button {
+    padding: 8px 12px;
+    border: none;
+    color: $light-text-color;
+    cursor: pointer;
+    margin: 0 4px;
+    &.active{
+      color: $text-color;
+    }
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      color: $text-color;
+    }
+  }
+
+  .page-num {
+    padding: 8px 12px;
+    margin: 0 2px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &.active {
+      background-color: #39cdcc;
+      color: #fff;
+    }
+  }
+}
+
 // Responsive design
 @media screen and (max-width: 768px) {
   .stats {

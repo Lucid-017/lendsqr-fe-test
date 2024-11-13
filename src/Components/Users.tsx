@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 interface User{
   name:string;
@@ -8,7 +8,20 @@ interface User{
   status:string;
 }
 
-const Users = ({data}:User) => {
+
+const Users = ({data}) => {
+  const [users,setUsers]= useState([])
+
+  export const getUsers = (page,limit){
+    const arrNums:[]=[]
+    // if current page is one an limit is 9, return users from 0-8
+    // if current page is 2 and limit is 9, return users from 9-17
+    for(let i = (page-1)*limit; i<(page*limit);i++){
+      arrNums.push(data.map(user=>{user[i]}))
+    }
+    setUsers(arrNums)
+  }
+ 
   return (
     <table className="table-container">
     <thead>
@@ -117,7 +130,7 @@ const Users = ({data}:User) => {
       <th></th>
     </thead>
     <tbody>
-      {data.map((user:User,index:number)=>(
+      {users.map((user:User,index:number)=>(
         <>
         <tr key={index}>
         <td>Lendsqr</td>
