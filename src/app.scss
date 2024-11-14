@@ -1,4 +1,7 @@
 @use './styles/index' as *;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .hello{
     font-size: $font-base-size;

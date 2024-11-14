@@ -3,6 +3,7 @@ import "../styles/Dashboard.scss";
 import Navbar from "../Components/Navbar";
 // import Pagination from "../Components/Pagination";
 // import Users from "../Components/Users";
+import { Link } from "react-router-dom";
 
 interface User {
   name: string;
@@ -13,6 +14,7 @@ interface User {
 }
 const Dashboard = () => {
   const [users, setUsers] = useState<User[]>([]);
+  const [error,setError] = useState('')
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(9); // Show 10 users per page
 
@@ -24,8 +26,9 @@ const Dashboard = () => {
         ); // Adjust URL if hosted remotely
         const data: User[] = await response.json();
         setUsers(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
+      } catch (err) {
+        setError(err)
+        console.error("Error fetching data:", err);
       }
     };
 
@@ -479,7 +482,8 @@ const Dashboard = () => {
               <tbody>
                 {currentPageUsers.map((user, index: number) => (
                   <>
-                    <tr className="tr" key={index}>
+                  <Link to={`/users/${user.name}`}>
+                  <tr className="tr" key={index}>
                       <td>Lendsqr</td>
                       <td>{user.name}</td>
                       <td>{user.email}</td>
@@ -524,10 +528,15 @@ const Dashboard = () => {
                         </svg>
                       </td>
                     </tr>
+                  </Link>
+                   
                   </>
                 ))}
+                {/* if request failed */}
+                {!users && (<pre>{error}</pre>)}
               </tbody>
             </table>
+            {/*  */}
             <div className="pagination-container">
               <div className="pagination-info">
                 <p>showing</p>
