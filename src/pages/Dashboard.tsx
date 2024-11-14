@@ -27,7 +27,7 @@ const Dashboard = () => {
         const data: User[] = await response.json();
         setUsers(data);
       } catch (err) {
-        setError(err)
+        setError(err as string)
         console.error("Error fetching data:", err);
       }
     };
