@@ -1,12 +1,1 @@
 @use './styles/index' as *;
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.hello{
-    font-size: $font-base-size;
-    color: $font-primary;
-    .sub-hello{
-        color: rgba(128, 128, 128, 0.353);
-    }
-}

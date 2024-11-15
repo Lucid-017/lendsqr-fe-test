@@ -1,45 +1,121 @@
-// @use '../styles/variables'as *;
-// .container{
-//     padding: 0 40px;
-// }
-// .header{
-//     margin-top: 40px;
-//     display: flex;
-//     justify-content: space-between;
-// }
-// .hero {
-//     display: flex;
+@use '../styles/variables'as *;
 
-// }
-// .cta button{
-//     padding: 10px 15px;
-//     margin-right: 10px;
-//     // border: 2px solid ;
-//     border-radius: $border-radius-small;
-//     background-color: transparent;
-//     button.active{
-//         color: $accent-color;
-//         border: 2px solid $accent-color;
-//     }
-//     button .blacklisted{
-//         color: $error-color;
-//         border: 2px solid $error-color;
-//     }
-// }
-// nav{
-//     // display:flex;
-//     ul{
-//         list-style: none;
-//         display: flex;
-//         justify-content: space-between;
-//         li{
-//             cursor: pointer;
+.container{
+    padding: 10px 40px;
+    background-color: #fbfbfb;
+    .back{
+        display: flex;
+        align-items: center;
+        svg{
+            padding-right: 5px;
+        }
+    }
+}
+.header{
+    margin: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    @media(max-width:768px){
+        flex-direction: column;
+      }
+}
+.section{
+    background-color: #fff;
+    margin-bottom: 40px;
+
+    .hero {
+        display: flex;
+        padding: 40px;
+        align-items: center;
+        justify-content: space-around;
+        @media(max-width:768px){
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          }
+    
+    
+    }
+}
+
+.tier-icon svg{
+    padding-right: 5px;
+    justify-content: center;
+    align-items: center;
+}
+.white{
+    background-color: #fff;
+    padding: 20px 15px;
+}
+.cta button{
+    padding: 10px 15px;
+    margin-right: 10px;
+    // border: 2px solid ;
+    border-radius: $border-radius-small;
+    background-color: transparent;
+    button.active{
+        color: $accent-color;
+        border: 2px solid $accent-color;
+    }
+    button .blacklisted{
+        color: $error-color;
+        border: 2px solid $error-color;
+    }
+}
+.container nav{
+    background-color: #fff;
+    ul{
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        @media(max-width:640px
+        ){
+            flex-direction: column;
+          }
+        li{
+            cursor: pointer;
             
-//         }
-//         .active{
-//                 color: $accent-color;
-//                 border-bottom:2px solid $accent-color ;
+        }
+        .active{
+                color: $accent-color;
+                border-bottom:2px solid $accent-color ;
             
-//         }
-//     }
-// }
+        }
+    }
+}
+.information {
+    padding: 0 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.164);
+    .demo{
+        display: flex;
+        @media(max-width:768px){
+            flex-direction: column;
+          }
+        
+    }
+
+}
+.border{
+    padding: 10px 0px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.164);
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @media(max-width:768px){
+        flex-direction: column;
+      }
+}
+.title{
+    color: $text-color;
+    font-weight: 600;
+  }
+  label{
+    text-transform: uppercase;
+    font-size: $font-small;
+    color: $light-text-color;
+  }
+  div label + p{
+    color: $light-text-color; font-weight: 600;
+  }
