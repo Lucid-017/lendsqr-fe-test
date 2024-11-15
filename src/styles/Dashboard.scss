@@ -12,7 +12,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #fff;
+  // background-color: #fff;
   margin-bottom: 60px;
 }
 
@@ -118,6 +118,9 @@ body {
 // 
 .dashboard {
   display: flex;
+  @media(max-width:768px){
+    flex-direction: column;
+  }
  
 }
 
@@ -125,6 +128,9 @@ body {
   width: 250px;
   background-color: $primary-color;
   height: 100vh;
+  @media(max-width:768px){
+    // display: none;
+  }
 
   .logo {
     padding: 20px;
@@ -282,6 +288,41 @@ body {
   border-radius: $border-radius-small;
   padding: 10px;
   position: relative;
+  .hover {
+    position: relative;
+    
+    svg {
+      cursor: pointer;
+  
+      // Ensure the dropdown-content visibility is controlled only when hovering over the parent
+      &:hover + .dropdown-content {
+        display: block;
+      }
+    }
+  
+    .dropdown-content {
+      display: none;  // Initially hidden
+      text-align: center;
+      opacity: 0;
+      visibility: hidden; // Initially hidden
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: red;
+      min-width: 150px;
+      z-index: 1;
+      border-radius: 4px;
+      overflow: hidden;
+      // tra
+      .hover:hover &,
+    .dropdown-content:hover {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    }
+  }
+  
  td{
   padding-top:12px;
   padding-bottom:12px;
@@ -293,9 +334,7 @@ body {
     font-size: $font-small;
     margin-bottom: 10px;
   }
-  th div svg{
-    padding-left: 10px;
-  }
+
 }
 
 .status{

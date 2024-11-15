@@ -4,6 +4,7 @@ import Navbar from "../Components/Navbar";
 import User from "../Components/User";
 
 interface Userprop {
+  organization:string;
   name: string;
   email: string;
   mobile: number;
@@ -20,10 +21,11 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://run.mocky.io/v3/dd404bbc-bb6e-414e-8ace-6cec8d396789"
+          "https://run.mocky.io/v3/9626d6b1-21b7-40e2-9763-d9fabdc23b26"
         ); // Adjust URL if hosted remotely
         const data: Userprop[] = await response.json();
         setUsers(data);
+        console.log(data)
       } catch (err) {
         setError(err as string)
         console.error("Error fetching data:", err);
@@ -93,22 +95,6 @@ const Dashboard = () => {
     <div className="dashboard">
       <Navbar />
       <div className="main-content">
-        {/* <header className="header">
-          <div className="search">
-            <input type="text" placeholder="Search for anything" />
-            <div className="search-icon">
-              
-            </div>
-          </div>
-          <span>Docs</span>
-          <div>
-            <img src="../assets/bell.jpeg" />
-          </div>
-          <div className="user-info">
-            <div className="user"></div>
-            <span>Adedeji</span>
-          </div>
-        </header> */}
         <div className="navbar">
         <div className="navbar-left">
     <div className="search-bar">
