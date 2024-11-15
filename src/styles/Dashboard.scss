@@ -11,9 +11,9 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  // background-color: #fff;
-  margin-bottom: 60px;
+  padding: 10px 25px;
+  background-color: #fff;
+  // padding-bottom: 60px;
 }
 
 /* Search bar */
@@ -22,53 +22,44 @@ body {
   border: 1px solid #ccc;
   border-radius: 4px;
   overflow: hidden;
-}
+   input {
+    border: none;
+    width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+   button {
+    background-color: #00c2c2;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+  }
 
-.search-bar input {
-  border: none;
-  width: 400px;
-  padding: 10px;
-  font-size: 16px;
-  outline: none;
-}
-
-.search-bar button {
-  background-color: #00c2c2;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  color: #fff;
-  display: flex;
-  align-items: center;
-}
-
-.search-bar button svg {
-  fill: #fff;
+  
 }
 
 /* Right section styling */
 .navbar-right {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
+// .navbar-left{
+//   display: flex;
+// }
 
 .docs-link {
   margin-right: 20px;
-  color: #333;
-  text-decoration: none;
-  font-weight: 600;
+  color: $text-color;
+  text-decoration: underline;
 }
 
-.bell-icon {
-  margin-right: 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
 
-.bell-icon svg {
-  fill: #333;
-}
 
 /* User Dropdown */
 .user-dropdown {
@@ -76,6 +67,17 @@ body {
   align-items: center;
   cursor: pointer;
   position: relative;
+  gap: 10px;
+  .userimage{
+    height:40px;
+    width: 40px;
+    background-color: red;
+    background: url(../assets/user.jpeg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+  }
 }
 
 .user-dropdown .avatar {
@@ -115,11 +117,15 @@ body {
 .user-dropdown .dropdown-content a:hover {
   background-color: #f0f0f0;
 }
-// 
+// flex sidebar and user section
 .dashboard {
   display: flex;
   @media(max-width:768px){
     flex-direction: column;
+  }
+  .user-section{
+    flex: 1;
+    padding: 50px;
   }
  
 }
@@ -127,7 +133,7 @@ body {
 .sidebar {
   width: 250px;
   background-color: $primary-color;
-  height: 100vh;
+  height: 100%;
   @media(max-width:768px){
     // display: none;
   }
@@ -184,7 +190,6 @@ body {
 
 .main-content {
   flex-grow: 1;
-  padding: 20px 20px 0 30px;
   background-color: $background-color;
 
   .header {
@@ -333,6 +338,10 @@ body {
     align-items: center;
     font-size: $font-small;
     margin-bottom: 10px;
+  }
+  th div svg{
+    padding-left: 5px;
+
   }
 
 }
