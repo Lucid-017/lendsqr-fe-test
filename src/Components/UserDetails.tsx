@@ -1,7 +1,11 @@
 // import React from "react";
 import "../styles/user.scss";
+import { Userprop } from "../pages/Dashboard";
 
-const UserDetails = () => {
+type UserDetailsProps = {
+  user: Userprop;
+};
+const UserDetails = ({user}:UserDetailsProps) => {
   return (
     <div className="container">
       <div className="back">
@@ -50,8 +54,8 @@ const UserDetails = () => {
             </svg>
           </div>
           <div>
-            <p className="title">Grace Effiom</p>
-            <p>LSQFf587g90</p>
+            <p className="title">{user.name}</p>
+            <p>{user.user_id}</p>
           </div>
         </div>
         <div>
@@ -116,8 +120,8 @@ const UserDetails = () => {
           </div>
         </div>
         <div>
-          <h3 className="balance">₦200,000.00</h3>
-          <p>9912345678</p>
+          <h3 className="balance">₦{user.loan_amount_owed}</h3>
+          <p>{user.bank_account_number}/{user.bank_name}</p>
         </div>
       </div>
       <nav>
@@ -139,37 +143,37 @@ const UserDetails = () => {
           <div className="  demo flex">
             <div>
               <label>Full Name</label>
-              <p>Grace Effiom</p>
+              <p>{user.name}</p>
             </div>
             <div>
               <label>Phone Number</label>
-              <p>Name here</p>
+              <p>{user.mobile}</p>
             </div>
             <div>
               <label>email address</label>
-              <p>Name here</p>
+              <p>{user.email}</p>
             </div>
             <div>
               <label>BVN</label>
-              <p>Name here</p>
+              <p>{user.bvn}</p>
             </div>
             <div>
               <label>Gender</label>
-              <p>Name here</p>
+              <p>{user.gender}</p>
             </div>
           </div>
           <div className=" border demo flex">
             <div>
               <label>Marital status</label>
-              <p>Name here</p>
+              <p>{user.marital_status}</p>
             </div>
             <div>
               <label>children</label>
-              <p>Name here</p>
+              <p>{user.children_count}</p>
             </div>
             <div>
               <label>type of residence</label>
-              <p>Name here</p>
+              <p>{user.type_of_residence}</p>
             </div>
           </div>
           {/* BORDER LINE */}
@@ -177,33 +181,33 @@ const UserDetails = () => {
           <div className=" flex">
             <div>
               <label>Level of Education</label>
-              <p>Name here</p>
+              <p>{user.education}</p>
             </div>
             <div>
               <label>Employment status</label>
-              <p>Name here</p>
+              <p>{user.employment_status}</p>
             </div>
             <div>
               <label>sector of employment</label>
-              <p>Name here</p>
+              <p>{user.sector}</p>
             </div>
             <div>
-              <label>durationof employemnt</label>
-              <p>Name here</p>
+              <label>duration of employemnt</label>
+              <p>{}</p>
             </div>
           </div>
           <div className="demo flex">
             <div>
               <label>office email</label>
-              <p>Name here</p>
+              <p>{user.name}@{user.organization}</p>
             </div>
             <div>
               <label>monthly income</label>
-              <p>Name here</p>
+              <p>₦{user.loan_amount_owed}</p>
             </div>
             <div>
               <label>loan repayment</label>
-              <p>Name here</p>
+              <p>₦{user.loan_amount_owed}</p>
             </div>
           </div>
         </div>
@@ -212,53 +216,53 @@ const UserDetails = () => {
         <div className="border socials flex demo">
           <div>
             <label>twitter</label>
-            <p>Name here</p>
+            <p>{user.socials}@twitter</p>
           </div>
           <div>
             <label>facebook</label>
-            <p>Name here</p>
+            <p>{user.socials}@facebook</p>
           </div>
           <div>
             <label> instagram</label>
-            <p>Name here</p>
+            <p>{user.socials}@instagram</p>
           </div>
         </div>
         <p className="title">Guarantor</p>
         <div className="border flex">
           <div>
             <label>Full Name</label>
-            <p>Name here</p>
+            <p>{user.guarantor.name}</p>
           </div>
           <div>
             <label>phone number</label>
-            <p>Name here</p>
+            <p>0{user.guarantor.mobile}</p>
           </div>
           <div>
             <label>email address</label>
-            <p>Name here</p>
+            <p>{user.email}</p>
           </div>
           <div>
             <label>relationship</label>
-            <p>Name here</p>
+            <p>{user.guarantor.relationship}</p>
           </div>
         </div>
         {/* border line */}
         <div className=" flex">
           <div>
             <label>Full Name</label>
-            <p>Name here</p>
+            <p>{user.guarantor.name}</p>
           </div>
           <div>
             <label>phone number</label>
-            <p>Name here</p>
+            <p>0{user.mobile}</p>
           </div>
           <div>
             <label>email address</label>
-            <p>Name here</p>
+            <p>{user.email}</p>
           </div>
           <div>
             <label>relationship</label>
-            <p>Name here</p>
+            <p>{user.guarantor.relationship}</p>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import './app.scss'
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
-import UserDetails from './Components/UserDetails'
+// import UserDetails from './Components/UserDetails'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -13,7 +13,6 @@ function App() {
       <Routes>
       <Route path='/' element={<Dashboard/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
-      <Route path='/user/:id ' element={<UserDetails/>}></Route>
       </Routes>
           {/* <Login/> */}
 

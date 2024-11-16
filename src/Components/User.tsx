@@ -1,22 +1,14 @@
+import { Userprop } from "../pages/Dashboard";
 import "../styles/Dashboard.scss";
-import { Link } from "react-router-dom";
 
-interface Userprop {
-  id:number;
-  organization: string;
-  name: string;
-  email: string;
-  mobile: number;
-  Date_joined: string;
-  status: string;
-}
 interface prop {
   users: Userprop[];
   error: string;
   currentPage: number;
   pageSize: number;
+  onUserClick:(user:Userprop)=>void 
 }
-const User = ({ currentPage, pageSize, users, error }: prop) => {
+const User = ({ currentPage, pageSize, users, error,onUserClick }: prop) => {
   const startIndex = (currentPage - 1) * pageSize;
   const currentPageUsers = users.slice(startIndex, startIndex + pageSize);
 
@@ -128,15 +120,15 @@ const User = ({ currentPage, pageSize, users, error }: prop) => {
         <th></th>
       </thead>
       <tbody>
-        {currentPageUsers.map((user, index: number) => (
+        {currentPageUsers.map((user) => (
           <>
             {/* <Link to={`/users/${user.name}`}> */}
-            <tr key={index}>
+            <tr key={user.id}>
               <td>{user.organization}</td>
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>0{user.mobile}</td>
-              <td>{user.Date_joined}</td>
+              <td>{user.date_joined}</td>
               <td>
                 <span
                   className={`status ${
@@ -176,8 +168,8 @@ const User = ({ currentPage, pageSize, users, error }: prop) => {
                 </svg>
                 {/*  */}
                 <div className="dropdown-content">
-                  <Link to={`user/${user.id}`}>
-                    <p>
+                  
+                    <p onClick={()=>onUserClick(user)}>
                       <svg
                         width="16"
                         height="12"
@@ -200,7 +192,6 @@ const User = ({ currentPage, pageSize, users, error }: prop) => {
                       </svg>
                       View details
                     </p>
-                  </Link>
 
                   <p>
                     <svg
